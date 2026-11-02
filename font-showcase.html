@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Showcase | Daniel Wal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=
+  Bebas+Neue&
+  family=Bungee&
+  family=Caveat:wght@400;500;600;700&
+  family=Cormorant+Garamond:wght@400;500;600;700&
+  family=Dancing+Script:wght@400;500;600;700&
+  family=Fredoka:wght@300;400;500;600;700&
+  family=JetBrains+Mono:wght@300;400;500;600;700&
+  family=Nunito:wght@300;400;500;600;700;800&
+  family=Oswald:wght@400;500;600;700&
+  family=Pacifico&
+  family=Playfair+Display:wght@400;500;600;700&
+  family=Quicksand:wght@300;400;500;600;700&
+  family=Righteous&
+  family=Space+Grotesk:wght@400;500;600;700&
+  family=Syne:wght@400;500;600;700;800&
+  family=Unbounded:wght@400;500;600;700;800&
+  family=Outfit:wght@300;400;500;600;700&
+  family=Manrope:wght@300;400;500;600;700;800&
+  display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #09090b;
+  --surface: #121214;
+  --surface-hover: #1c1c1f;
+  --ink: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: rgba(255,255,255,0.06);
+  --accent: #10b981;
+  --radius: 14px;
+  --space: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  font-family: "Outfit", "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  padding-bottom: 4rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+header h1 span { color: var(--accent); }
+header p { color: var(--muted); font-size: 1.1rem; }
+
+.category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.font-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.font-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.font-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.font-name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.sample-large {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  word-break: break-word;
+}
+
+.sample-small {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(16,185,129,0.1);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  margin-top: 1rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Font classes */
+.f-bebas      { font-family: "Bebas Neue", sans-serif; }
+.f-bungee     { font-family: "Bungee", cursive; }
+.f-caveat     { font-family: "Caveat", cursive; }
+.f-cormorant  { font-family: "Cormorant Garamond", serif; }
+.f-dancing    { font-family: "Dancing Script", cursive; }
+.f-fredoka    { font-family: "Fredoka", sans-serif; }
+.f-jetbrains  { font-family: "JetBrains Mono", monospace; }
+.f-nunito     { font-family: "Nunito", sans-serif; }
+.f-oswald     { font-family: "Oswald", sans-serif; }
+.f-pacifico   { font-family: "Pacifico", cursive; }
+.f-playfair   { font-family: "Playfair Display", serif; }
+.f-quicksand  { font-family: "Quicksand", sans-serif; }
+.f-righteous  { font-family: "Righteous", cursive; }
+.f-space      { font-family: "Space Grotesk", sans-serif; }
+.f-syne       { font-family: "Syne", sans-serif; }
+.f-unbounded  { font-family: "Unbounded", sans-serif; }
+.f-outfit     { font-family: "Outfit", sans-serif; }
+.f-manrope    { font-family: "Manrope", sans-serif; }
+
+.recommendation {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.recommendation h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.recommendation ul {
+  color: var(--muted);
+  padding-left: 1.2rem;
+  line-height: 2;
+}
+
+.recommendation li span {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .font-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Font <span>Showcase</span></h1>
+    <p>18 personality-packed fonts to consider for your portfolio</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- PLAYFUL -->
+  <section class="category">
+    <div class="category-title">Playful & Friendly</div>
+    <div class="font-grid">
+      <div class="font-card">
+        <div class="font-name">Fredoka</div>
+        <div class="sample-large f-fredoka">Hello, I am Fredoka</div>
+        <div class="sample-small f-fredoka">Rounded, warm, and approachable. Great for a friendly creative portfolio.</div>
+        <span class="tag">Playful</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Nunito</div>
+        <div class="sample-large f-nunito">Hello, I am Nunito</div>
+        <div class="sample-small f-nunito">Super rounded and balanced. Works for both headings and body text.</div>
+        <span class="tag">Friendly</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Quicksand</div>
+        <div class="sample-large f-quicksand">Hello, I am Quicksand</div>
+        <div class="sample-small f-quicksand">Clean geometric rounds. Minimal but with a soft personality.</div>
+        <span class="tag">Minimal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDWRITTEN -->
+  <section class="category">
+    <div class="category-title">Handwritten & Script</div>
+    <div class="font-grid">
+      <div class="font-card">
+        <div class="font-name">Caveat</div>
+        <div class="sample-large f-caveat">Hello, I am Caveat</div>
+        <div class="sample-small f-caveat">A natural handwritten feel. Excellent for signatures, quotes, or side notes.</div>
+        <span class="tag">Handwritten</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Dancing Script</div>
+        <div class="sample-large f-dancing">Hello, I am Dancing Script</div>
+        <div class="sample-small f-dancing">Elegant bouncing script. Good for a personal, creative touch.</div>
+        <span class="tag">Elegant</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Pacifico</div>
+        <div class="sample-large f-pacifico">Hello, I am Pacifico</div>
+        <div class="sample-small f-pacifico">Bold brush script. Very distinctive, use sparingly for logos or names.</div>
+        <span class="tag">Bold Script</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODERN & GEOMETRIC -->
+  <section class="category">
+    <div class="category-title">Modern & Geometric</div>
+    <div class="font-grid">
+      <div class="font-card">
+        <div class="font-name">Space Grotesk</div>
+        <div class="sample-large f-space">Hello, I am Space Grotesk</div>
+        <div class="sample-small f-space">Currently on your site. Technical, modern, slightly quirky. Great for tech portfolios.</div>
+        <span class="tag">Current</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Syne</div>
+        <div class="sample-large f-syne">Hello, I am Syne</div>
+        <div class="sample-small f-syne">Artistic and unconventional. Variable, expressive shapes. Very design-forward.</div>
+        <span class="tag">Artistic</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Unbounded</div>
+        <div class="sample-large f-unbounded">Hello, I am Unbounded</div>
+        <div class="sample-small f-unbounded">Crypto-native geometric sans. Square, confident, futuristic. Makes a statement.</div>
+        <span class="tag">Futuristic</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Outfit</div>
+        <div class="sample-large f-outfit">Hello, I am Outfit</div>
+        <div class="sample-small f-outfit">Pure geometric perfection. Clean circles and lines. Very modern and airy.</div>
+        <span class="tag">Geometric</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Manrope</div>
+        <div class="sample-large f-manrope">Hello, I am Manrope</div>
+        <div class="sample-small f-manrope">Open-source geometric sans. Professional but with subtle character.</div>
+        <span class="tag">Professional</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOLD & STATEMENT -->
+  <section class="category">
+    <div class="category-title">Bold & Statement</div>
+    <div class="font-grid">
+      <div class="font-card">
+        <div class="font-name">Bebas Neue</div>
+        <div class="sample-large f-bebas">HELLO, I AM BEBAS NEUE</div>
+        <div class="sample-small f-bebas">All-caps condensed powerhouse. Perfect for section titles and headers.</div>
+        <span class="tag">Condensed</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Oswald</div>
+        <div class="sample-large f-oswald">HELLO, I AM OSWALD</div>
+        <div class="sample-small f-oswald">Classic condensed sans. Strong vertical rhythm. Great for nav and headings.</div>
+        <span class="tag">Classic Bold</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Bungee</div>
+        <div class="sample-large f-bungee">HELLO</div>
+        <div class="sample-small f-bungee">Urban, blocky, and loud. Best for short words, logos, or display text only.</div>
+        <span class="tag">Urban</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Righteous</div>
+        <div class="sample-large f-righteous">Hello, I am Righteous</div>
+        <div class="sample-small f-righteous">Unique geometric with Art Deco vibes. Distinctive without being overwhelming.</div>
+        <span class="tag">Unique</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL & SERIF -->
+  <section class="category">
+    <div class="category-title">Editorial & Serif</div>
+    <div class="font-grid">
+      <div class="font-card">
+        <div class="font-name">Playfair Display</div>
+        <div class="sample-large f-playfair">Hello, I am Playfair</div>
+        <div class="sample-small f-playfair">High-contrast transitional serif. Elegant, editorial, magazine-like. Great for names.</div>
+        <span class="tag">Editorial</span>
+      </div>
+      <div class="font-card">
+        <div class="font-name">Cormorant Garamond</div>
+        <div class="sample-large f-cormorant">Hello, I am Cormorant</div>
+        <div class="sample-small f-cormorant">Classic serif beauty. Literary and refined. Pairs well with geometric sans body.</div>
+        <span class="tag">Literary</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONO / TECH -->
+  <section class="category">
+    <div class="category-title">Monospace / Tech</div>
+    <div class="font-grid">
+      <div class="font-card">
+        <div class="font-name">JetBrains Mono</div>
+        <div class="sample-large f-jetbrains">Hello, I am JetBrains Mono</div>
+        <div class="sample-small f-jetbrains">A programmer's font with personality. Excellent for code snippets and tech vibes.</div>
+        <span class="tag">Code</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section class="recommendation">
+    <h2>My Top Picks for Your Portfolio</h2>
+    <ul>
+      <li><span>Heading:</span> Syne, Unbounded, or Space Grotesk — modern, technical, memorable.</li>
+      <li><span>Body text:</span> Outfit, Manrope, or Nunito — readable, clean, with subtle warmth.</li>
+      <li><span>Accent / name logo:</span> Righteous, Bebas Neue, or Playfair Display — instant personality.</li>
+      <li><span>Personal touches:</span> Caveat for quotes, side notes, or a handwritten signature feel.</li>
+      <li><span>Code blocks:</span> JetBrains Mono — clearly technical and very readable.</li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>

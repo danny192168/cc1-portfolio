@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Work | Daniel Wal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #09090b;
+  --surface: #121214;
+  --surface-hover: #1c1c1f;
+  --ink: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: rgba(255,255,255,0.06);
+  --accent: #10b981;
+  --accent-weak: rgba(16,185,129,0.12);
+  --radius: 14px;
+  --space: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --step--1: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
+  --step-0: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem);
+  --step-3: clamp(2.5rem, 1.8rem + 2.4vw, 4rem);
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Fredoka", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: var(--step-0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography - all Fredoka */
+h1, h2, h3, .logo, .nav-links a, .btn, .style-name, .category-title {
+  font-family: "Fredoka", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header & Nav */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: var(--step-1);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--ink);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Main */
+main { flex: 1; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--step--1);
+  margin-top: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  font-size: var(--step--1);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(16,185,129,0.4);
+  text-decoration: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--surface-hover);
+  box-shadow: none;
+}
+
+/* Utility */
+.text-muted { color: var(--muted); }
+
+/* ============================================
+   MIDNIGHT BLUE + FAINT GRID BACKGROUND
+   ============================================ */
+.bg-midnight-grid {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0e1a 0%, #02040a 100%);
+  position: relative;
+}
+
+.bg-midnight-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the grid overlay */
+.bg-midnight-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn:hover { transform: none; }
+  .nav-links a::after { transition: none; }
+}
+
+/* Mobile nav */
+@media (max-width: 600px) {
+  .nav-wrap { flex-direction: column; gap: 1rem; }
+  .nav-links { gap: 1.2rem; }
+}
+
+
+.coming-soon {
+  text-align: center;
+  padding: clamp(6rem, 15vw, 12rem) 1rem;
+}
+
+.coming-soon .icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.coming-soon h1 {
+  font-size: var(--step-2);
+  margin-bottom: 1rem;
+}
+
+.coming-soon p {
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 0 auto 2rem;
+}
+
+.work-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 2rem auto 0;
+}
+
+.work-preview .cat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.work-preview .cat .cat-label {
+  font-size: var(--step--1);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.work-preview .cat .cat-name {
+  font-weight: 600;
+  font-size: var(--step-1);
+}
+
+@media (max-width: 600px) {
+  .work-preview { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">DW<span>.</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html" class="active">My Work</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="coming-soon bg-midnight-grid">
+  <div class="icon">&#9881;</div>
+  <h1>My Work</h1>
+  <p>This section will showcase my projects across software development, cybersecurity, and robotics. Stay tuned for updates.</p>
+  <a href="index.html" class="btn btn-ghost">Back to Home</a>
+
+  <div class="work-preview">
+    <div class="cat">
+      <div class="cat-label">Category</div>
+      <div class="cat-name">Software</div>
+    </div>
+    <div class="cat">
+      <div class="cat-label">Category</div>
+      <div class="cat-name">Cybersecurity</div>
+    </div>
+    <div class="cat">
+      <div class="cat-label">Category</div>
+      <div class="cat-name">Robotics</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Daniel Wal. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
